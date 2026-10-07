@@ -23,8 +23,8 @@ env:
 jobs:
   deepeval:
     name: DeepEval LLM Evaluation
-    # DeepEval needs both the inference service and judge-model credentials.
-    if: ${{ secrets.OLLAMA_API_KEY != '' && secrets.OLLAMA_BASE_URL != '' && secrets.OPENAI_API_KEY != '' }}
+    # Enable after setting required secrets and RUN_LLM_EVALUATIONS=true.
+    if: ${{ vars.RUN_LLM_EVALUATIONS == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

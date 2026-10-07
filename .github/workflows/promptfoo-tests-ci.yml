@@ -22,9 +22,8 @@ env:
 jobs:
   promptfoo-eval:
     name: PromptFoo Evaluation
-    # External model evaluations only run after the repository owner adds
-    # the required Ollama credentials as GitHub Actions secrets.
-    if: ${{ secrets.OLLAMA_API_KEY != '' && secrets.OLLAMA_BASE_URL != '' }}
+    # Enable after setting required secrets and RUN_LLM_EVALUATIONS=true.
+    if: ${{ vars.RUN_LLM_EVALUATIONS == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
